@@ -1,41 +1,61 @@
 package javaPack.waveUSB;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Objects;
 //File copied from JUIT Libraray project. it is an incomplete library and is very buggy, so please do not use it for production. Still curious? visit https://github.com/RishonDev/JUIT
 @SuppressWarnings("ALL")
 public class QuestionNotification {
 
 
-    private short x = 600;
-    private short y = 175;
-    final public int IMAGE_SIZEY =  92;
-    final public int IMAGE_SIZEX =  84;
-
-    JLabel IconImage = new JLabel("");
-    JFrame frame = new JFrame("Question!");
-    JButton yes = new JButton("yes");
-    JButton no = new JButton();
-    String temp = yes.getText();
-    JLabel QuestionText;
-    public void SetQuestionText(String displayText)
+    static private short x = 600;
+    static private short y = 175;
+    static final public int IMAGE_SIZEY =  92;
+    static final public int IMAGE_SIZEX =  84;
+    static private int response = Integer.parseInt(null);
+    static JLabel IconImage = new JLabel("");
+    static JFrame frame = new JFrame("Question!");
+    static JButton yes = new JButton("yes");
+    static JButton no = new JButton();
+    static String temp = yes.getText();
+    static JLabel QuestionText;
+    public QuestionNotification(String Title, int sizeX,int sizeY){
+        yes.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                response = 1;
+            }
+        });
+        no.addActionListener(new ActionListener(){
+           public void actionPerformed(ActionEvent e) {
+               response = 0;
+           }
+        });
+        frame.setSize(new Dimension(sizeX,sizeY));
+        frame.setTitle(Title);
+        frame.setVisible(true);
+    }
+    public static void setQuestionText(String displayText)
     {
         var QuestionText = new JLabel(displayText);
         QuestionText.setBounds(102, 17, 492, 113);
         frame.getContentPane().add(QuestionText);
     }
-    public void SetIcon(String filePathWithName) {
+    public JFrame getFrame(){
+        return frame;
+    }
+    public static void setIcon(String filePathWithName) {
         IconImage.setIcon(new ImageIcon(Objects.requireNonNull(QuestionNotification.class.getResource(filePathWithName))));
     }
     @SuppressWarnings("SuspiciousNameCombination")
-    public void setSizeOfText(short x, short y) {
+    public static void setSizeOfText(short x, short y) {
         QuestionText.setSize(y, x);
     }
-    public void setTitle(String Title)
+    public static void setTitle(String Title)
     {
         QuestionText.setName(Title);
     }
-    public void setDefaults()
+    public static void setDefaults()
     {
         frame.setBounds(100, 100, 600, 175);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,35 +70,35 @@ public class QuestionNotification {
         yes.setBounds(0,0,580,165);
         frame.getContentPane().add(yes);
     }
-    public void setBackgroundColor(Color color)
+    public static void setBackgroundColor(Color color)
     {
         frame.setBackground(color);
     }
-    public void setFont(String FontName,String FontType,short size)
+    public static void setFont(String FontName,String FontType,short size)
     {
         if(FontType.equals("Plain"))QuestionText.setFont(new Font(FontName, Font.PLAIN, size));
         if(FontType.equals("Bold"))QuestionText.setFont(new Font(FontName, Font.BOLD, size));
         if(FontType.equals("Italic"))QuestionText.setFont(new Font(FontName, Font.ITALIC, size));
 
     }
-    public void setTitleIcon(String pathOfFile)
+    public static void setTitleIcon(String pathOfFile)
     {
         Image icon = Toolkit.getDefaultToolkit().getImage(pathOfFile);
         frame.setIconImage(icon);
     }
-    public void setButtonMessage(String buttonMessage)
+    public static void setButtonMessage(String buttonMessage)
     {
         yes.setText(buttonMessage);
     }
-    public void setButtonSize(Dimension dim)
+    public static void setButtonSize(Dimension dim)
     {
         yes.setPreferredSize(dim);
     }
-    public void setPositionOfYesButton(short x,short y)
+    public static void setPositionOfYesButton(short x,short y)
     {
         yes.setLocation(x,y);
     }
-    public void setPositionOfNoButton(short x,short y)
+    public static void setPositionOfNoButton(short x,short y)
     {
         no.setLocation(x,y);
     }
@@ -88,57 +108,61 @@ public class QuestionNotification {
         this.y = y;
         frame.setSize(this.x,this.y);
     }
-    public short getXOfWindow()
+    public static short getXOfWindow()
     {
         return x;
     }
-    public short getYOfWindow()
+    public static short getYOfWindow()
     {
         return y;
     }
-    public short getYOfYesButton()
+    public static short getYOfYesButton()
     {
         return (short) 175;
     }
-    public short getXOfYesButton()
+    public static short getXOfYesButton()
     {
         return (short) 600;
     }
-    public short getYOfNokButton()
+    public static short getYOfNokButton()
     {
         return (short) 175;
     }
-    public short getXOfNoButton()
+    public static short getXOfNoButton()
     {
         return (short) 600;
     }
-    public void AddNoButton()
+    public static void addNoButton()
     {
         no.setBounds(100, 100, 590, 175);
         frame.add(no);
 
     }
-    public void setButtonYesFont(String FontName,String FontType,short size)
+    public static void setButtonYesFont(String FontName,String FontType,short size)
     {
         if(FontType.equals("Plain"))yes.setFont(new Font(FontName, Font.PLAIN, size));
         if(FontType.equals("Bold"))yes.setFont(new Font(FontName, Font.BOLD, size));
         if(FontType.equals("Italic"))yes.setFont(new Font(FontName, Font.ITALIC, size));
     }
-    public void setButtonNoFont(String FontName,String FontType,short size)
+    public static void setButtonNoFont(String FontName,String FontType,short size)
     {
         if(FontType.equals("Plain"))no.setFont(new Font(FontName, Font.PLAIN, size));
         if(FontType.equals("Bold"))no.setFont(new Font(FontName, Font.BOLD, size));
         if(FontType.equals("Italic"))no.setFont(new Font(FontName, Font.ITALIC, size));
     }
+    public static void setVisibility(boolean isVisible){frame.setVisible(isVisible);}
+    public static void trimTextOfNoButton()
+    {
+        no.setText(no.getText().trim());
+    }
+    public static void trimTextOfYesButton()
+    {
+        yes.setText(yes.getText().trim());
+    }
+    public int getResponse(){
+        return this.response;
+    }
 
-    public void trimTextOfNoButton()
-    {
-        String temp =no.getText().trim();
-        no.setText(temp);
-    }
-    public void trimTextOfYesButton()
-    {
-        String temp =yes.getText().trim();
-        yes.setText(temp);
-    }
+
+
 }

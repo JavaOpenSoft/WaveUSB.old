@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -99,7 +100,6 @@ class Main {
     static JButton back7 = new JButton("Back");
     static JButton back8 = new JButton("Back");
 
-
     static JLabel windowsChose = new JLabel("Chose your Windows Version");
     //Image File
     static File image ;
@@ -113,6 +113,7 @@ class Main {
                 }
             }
         });
+
         otherButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -155,8 +156,26 @@ class Main {
                 layout.show(ApplicationPanel, "3");
             }
         });
-        frame.setSize(new Dimension(500,400));
-        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        macOS_11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (new File("//Library//Application\\ Support//WaveUSB//Install11Assistant.pkg").exists()) {
+                    QuestionNotification qNotification = new QuestionNotification("Are you sure?", 400, 100);
+                    try {
+                        qNotification.setDefaults();
+                        qNotification.setQuestionText("Are you sure that you want to download" + getFileSize(new URL(Constants.macOS11)) + "Megabytes?");
+                    } catch (MalformedURLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    if (qNotification.getResponse() == 1) {
+                        layout.show(ApplicationPanel, "1");
+                        download(Constants.macOS11, "Install11Assistant.pkg");
+                    }
+                    else{
+                        qNotification.setVisibility(false);
+                    }
+                }
+            }
+        });
         welcomeLabel.setFont(new Font("SansSerif", Font.PLAIN,30));
         macOSChoose.setFont(new Font("SansSerif", Font.PLAIN, 30));
         welcome.add(welcomeLabel);
@@ -224,9 +243,12 @@ class Main {
         ApplicationPanel.add(writeImageToUSB,"6");
         ApplicationPanel.add(verifyUSB,"7");
         ApplicationPanel.add(finishedScreen,"8");
+        ApplicationPanel.add(downloadImage,"9");
         layout.show(ApplicationPanel ,"1");
         frame.add(menuBar);
         frame.add(ApplicationPanel);
+        frame.setPreferredSize(new Dimension(700,700));
+        frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         //frame.pack();
         frame.setVisible(true);
 
@@ -250,7 +272,7 @@ class Main {
   }
  }
 
-    public void download(String URL, String fileName){
+    public static void download(String URL, String fileName){
      Runnable updateThread = new Runnable() {
       public void run() {
        try {
