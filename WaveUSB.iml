@@ -10,6 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="commons-io-2.11.0-javadoc" level="project" />
-    <orderEntry type="library" name="java" level="project" />
+    <orderEntry type="library" name="java-iso-tools" level="project" />
   </component>
 </module>

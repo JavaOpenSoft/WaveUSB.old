@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="syslinux-6.03">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Bootloaders/syslinux-6.03.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

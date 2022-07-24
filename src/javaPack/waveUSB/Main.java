@@ -5,10 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -158,7 +155,7 @@ class Main {
         });
         macOS_11.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (new File("//Library//Application\\ Support//WaveUSB//Install11Assistant.pkg").exists()) {
+                if (new File(Constants.appDatamacOS+"/Install11Assistant.pkg").exists()|| new File(Constants.appDataLinux+"/Install11Assistant.pkg").exists()|| new File(Constants.appDataLinux+"/Install11Assistant.pkg").exists()) {
                     QuestionNotification qNotification = new QuestionNotification("Are you sure?", 400, 100);
                     try {
                         qNotification.setDefaults();
@@ -169,6 +166,26 @@ class Main {
                     if (qNotification.getResponse() == 1) {
                         layout.show(ApplicationPanel, "1");
                         download(Constants.macOS11, "Install11Assistant.pkg");
+                    }
+                    else{
+                        qNotification.setVisibility(false);
+                    }
+                }
+            }
+        });
+        macOS_12.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (new File(Constants.appDatamacOS +"/InstallAssistant.pkg").exists()|| new File(Constants.appDataLinux+"/InstallAssistant.pkg").exists()|| new File(Constants.appDataLinux+"/InstallAssistant.pkg").exists()) {
+                    QuestionNotification qNotification = new QuestionNotification("Are you sure?", 400, 100);
+                    try {
+                        qNotification.setDefaults();
+                        qNotification.setQuestionText("Are you sure that you want to download" + getFileSize(new URL(Constants.macOS11)) + "Megabytes?");
+                    } catch (MalformedURLException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    if (qNotification.getResponse() == 1) {
+                        layout.show(ApplicationPanel, "1");
+                        download(Constants.macOS12, "InstallAssistant.pkg");
                     }
                     else{
                         qNotification.setVisibility(false);
@@ -304,6 +321,14 @@ class Main {
       }
      };
      new Thread(updateThread).start();
+    }
+    public static void writeImage(String filename, String usbDir) throws IOException {
+        if(new File(filename).exists() && new File(usbDir).exists()) {
+            Runtime.getRuntime().exec("dd ");
+        }
+    }
+    public static void installApp(String packageFile) throws IOException {
+        Runtime.getRuntime().exec("sudo installer -pkg " + Constants.appDatamacOS +"/" +packageFile+" -target CurrentUserHomeDirectory");
     }
 }
 

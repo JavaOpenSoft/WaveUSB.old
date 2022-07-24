@@ -34,4 +34,8 @@ public interface Constants {
     //not in CLI
     String fedoraServerNet_ARM = "https://mirrors.tuna.tsinghua.edu.cn/fedora/releases/36/Server/aarch64/iso/Fedora-Server-netinst-aarch64-36-1.5.iso";
     String fedoraServerNet = "https://download.fedoraproject.org/pub/fedora/linux/releases/36/Server/x86_64/iso/Fedora-Server-netinst-x86_64-36-1.5.iso";
+    //path for the application Data directory
+    String appDatamacOS = "//Library//Application\\ Support//WaveUSB/";
+    String appDataLinux = System.getProperty("user.home")+"/.WaveUSB/";
+    String appDataWindows = System.getProperty("user.home")+"/.WaveUSB/";
 }
