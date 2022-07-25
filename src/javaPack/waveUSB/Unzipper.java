@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class unzipper {
+public class Unzipper {
     private static void unzip(String zipFilePath, String destDir) {
         File dir = new File(destDir);
         // create output directory if it doesn't exist

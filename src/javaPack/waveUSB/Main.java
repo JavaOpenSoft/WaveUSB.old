@@ -13,7 +13,7 @@ import java.net.URLConnection;
 
 class Main {
    //Components of the Application
-    static JFrame frame = new JFrame();
+    static JFrame frame = new JFrame("Wave USB Image Writer");
     static JPanel ApplicationPanel = new JPanel();
     static JPanel welcome = new JPanel();
     static JPanel macOS = new JPanel();
@@ -43,9 +43,10 @@ class Main {
     static JLabel welcomeLabel = new JLabel("Welcome!");
     static JLabel linuxChoose = new JLabel("Please choose your linux Installer:");
     static JLabel othersChoose = new JLabel("Please choose an image file:");
-    JMenu fileMenu = new JMenu("File");
-    JMenu viewMenu = new JMenu("View");
-    JMenu downloadMenu = new JMenu("Download");
+    static JMenu fileMenu = new JMenu("File");
+    static JMenu help = new JMenu("help");
+    static JMenu downloadMenu = new JMenu("Download");
+    static JMenu settingsMenu = new JMenu("Settings");
     static JTextField imageFileDirectory = new JTextField("Enter the file path or select a file..");
     //Buttons
     static JButton selectFile = new JButton("Select a Image File");
@@ -96,7 +97,6 @@ class Main {
     static JButton back6 = new JButton("Back");
     static JButton back7 = new JButton("Back");
     static JButton back8 = new JButton("Back");
-
     static JLabel windowsChose = new JLabel("Chose your Windows Version");
     //Image File
     static File image ;
@@ -153,46 +153,7 @@ class Main {
                 layout.show(ApplicationPanel, "3");
             }
         });
-        macOS_11.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (new File(Constants.appDatamacOS+"/Install11Assistant.pkg").exists()|| new File(Constants.appDataLinux+"/Install11Assistant.pkg").exists()|| new File(Constants.appDataLinux+"/Install11Assistant.pkg").exists()) {
-                    QuestionNotification qNotification = new QuestionNotification("Are you sure?", 400, 100);
-                    try {
-                        qNotification.setDefaults();
-                        qNotification.setQuestionText("Are you sure that you want to download" + getFileSize(new URL(Constants.macOS11)) + "Megabytes?");
-                    } catch (MalformedURLException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    if (qNotification.getResponse() == 1) {
-                        layout.show(ApplicationPanel, "1");
-                        download(Constants.macOS11, "Install11Assistant.pkg");
-                    }
-                    else{
-                        qNotification.setVisibility(false);
-                    }
-                }
-            }
-        });
-        macOS_12.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (new File(Constants.appDatamacOS +"/InstallAssistant.pkg").exists()|| new File(Constants.appDataLinux+"/InstallAssistant.pkg").exists()|| new File(Constants.appDataLinux+"/InstallAssistant.pkg").exists()) {
-                    QuestionNotification qNotification = new QuestionNotification("Are you sure?", 400, 100);
-                    try {
-                        qNotification.setDefaults();
-                        qNotification.setQuestionText("Are you sure that you want to download" + getFileSize(new URL(Constants.macOS11)) + "Megabytes?");
-                    } catch (MalformedURLException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    if (qNotification.getResponse() == 1) {
-                        layout.show(ApplicationPanel, "1");
-                        download(Constants.macOS12, "InstallAssistant.pkg");
-                    }
-                    else{
-                        qNotification.setVisibility(false);
-                    }
-                }
-            }
-        });
+
         welcomeLabel.setFont(new Font("SansSerif", Font.PLAIN,30));
         macOSChoose.setFont(new Font("SansSerif", Font.PLAIN, 30));
         welcome.add(welcomeLabel);
@@ -262,10 +223,15 @@ class Main {
         ApplicationPanel.add(finishedScreen,"8");
         ApplicationPanel.add(downloadImage,"9");
         layout.show(ApplicationPanel ,"1");
+        menuBar.add(fileMenu);
+        menuBar.add(downloadMenu);
+        menuBar.add(help);
+        menuBar.add(settingsMenu);
         frame.add(menuBar);
         frame.add(ApplicationPanel);
-        frame.setPreferredSize(new Dimension(700,700));
+        frame.setSize(new Dimension(700,700));
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        frame.setMinimumSize(new Dimension(600,600));
         //frame.pack();
         frame.setVisible(true);
 
