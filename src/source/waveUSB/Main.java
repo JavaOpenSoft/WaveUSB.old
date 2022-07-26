@@ -1,5 +1,6 @@
 package source.waveUSB;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -9,6 +10,9 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Objects;
+
+import static javax.swing.text.StyleConstants.setIcon;
 
 class Main {
    //Components of the Application
@@ -101,6 +105,9 @@ class Main {
     static JLabel windowsChose = new JLabel("Chose your Windows Version");
     //Image File
     static File image ;
+    Image macOSmini = ImageIO.read(getClass().getResource("resources/water.bmp"));
+    Image windowsMini = ImageIO.read(getClass().getResource("resources/water.bmp"));
+    Image linuxMini = ImageIO.read(getClass().getResource("resources/"));
     public static void main(String[] args){
         selectFile.addActionListener(new ActionListener() {
             @Override
@@ -154,9 +161,14 @@ class Main {
                 layout.show(ApplicationPanel, "3");
             }
         });
+        macOS_11.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 
+            }
+        });
         welcomeLabel.setFont(new Font("SansSerif", Font.PLAIN,30));
         macOSChoose.setFont(new Font("SansSerif", Font.PLAIN, 30));
+        welcome.setLayout(null);
         welcome.setBorder(new EmptyBorder(5, 5, 5, 5));
         welcome.add(welcomeLabel);
         welcome.add(chooseOS);
