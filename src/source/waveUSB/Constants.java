@@ -2,7 +2,7 @@ package source.waveUSB;
 
 public interface Constants {
     String macOS11="https://swcdn.apple.com/content/downloads/44/35/012-22320-A_AOID136T4U/g33x1akyjzjpkpe7z0xn7nguoakljpe3a8/InstallAssistant.pkg";
-    String macOS12="https://swcdn.apple.com/content/downloads/16/08/012-06873-A_636SHHRD4L/528ojpmw00mulgfjsz9k50modkj31a9v0p/InstallAssistant.pkg";
+    String macOS12="https://swcdn.apple.com/content/downloads/22/05/012-42714-A_04QVESBZ2P/lnob1ikkx0mi6yz5x339ttchkxri53151v/InstallAssistant.pkg";
     String macOS12_MBP="https://swcdn.apple.com/content/downloads/16/08/012-06873-A_636SHHRD4L/528ojpmw00mulgfjsz9k50modkj31a9v0p/InstallAssistant.pkg";
     String ubuntu="https://releases.ubuntu.com/22.04/ubuntu-22.04-desktop-amd64.iso?_ga=2.53172328.1937538139.1658218589-1552335834.1657779817";
     String debian64="https://cdimage.debian.org/debian-cd/current/amd64/bt-dvd/debian-11.4.0-amd64-DVD-1.iso.torrent";

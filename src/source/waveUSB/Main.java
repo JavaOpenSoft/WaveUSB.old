@@ -10,9 +10,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Objects;
 
-import static javax.swing.text.StyleConstants.setIcon;
 
 class Main {
    //Components of the Application
@@ -105,9 +103,7 @@ class Main {
     static JLabel windowsChose = new JLabel("Chose your Windows Version");
     //Image File
     static File image ;
-    Image macOSmini = ImageIO.read(getClass().getResource("resources/water.bmp"));
-    Image windowsMini = ImageIO.read(getClass().getResource("resources/water.bmp"));
-    Image linuxMini = ImageIO.read(getClass().getResource("resources/"));
+    Icon icon = new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB");
     public static void main(String[] args){
         selectFile.addActionListener(new ActionListener() {
             @Override
