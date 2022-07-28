@@ -40,4 +40,8 @@ public interface Constants {
     String appDataWindows = System.getProperty("user.home")+"/.WaveUSB/";
     //Download link for the application binaries
     String waveUSB_Download = ""+ source.waveUSB.Core.SoftwareInfo.getVersion();
+    //Download via github releases
+    String macOS1015 = "https://github.com/RishonDev/WaveUSB/releases/download/macOS10.15.7/macOS-Catalina.Installer-10.15.7.tar.xz";
+    String macOS1014 ="https://github.com/RishonDev/WaveUSB/releases/download/macOS10.14.6/macOS-Mojave-Installer-10.14.6.tar.xz";
+    String macOS1013 = "https://github.com/RishonDev/WaveUSB/releases/download/macOS10.13.6/macOS-HighSierra-Installer-10.13.6.tar.xz";
 }

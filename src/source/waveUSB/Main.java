@@ -1,5 +1,7 @@
 package source.waveUSB;
 
+import source.install.Notification;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -25,8 +27,7 @@ class Main {
     static JPanel writeImageToUSB = new JPanel();
     static JPanel verifyUSB = new JPanel();
     static JPanel finishedScreen = new JPanel();//ending screen
-    static JPanel macOS11EULA = new JPanel();
-    static JPanel macOS12EULA = new JPanel();
+    static JPanel macOSEULA = new JPanel();
     static JButton macOS_11 = new JButton("macOS 11 (Codenamed Big Sur)");
     static JButton macOS_12 = new JButton("macOS 12(Codenamed Monterey)");
     static JButton macOS_12_MBP = new JButton("macOS 12 (Macbook Pro specific)(Codenamed Monterey)");
@@ -53,9 +54,9 @@ class Main {
     static JTextField imageFileDirectory = new JTextField("Enter the file path or select a file..");
     //Buttons
     static JButton selectFile = new JButton("Select a Image File");
-    static JButton macOSButton = new JButton("macOS");
-    static JButton windowsButton = new JButton("Windows");
-    static JButton linuxButton = new JButton("Linux");
+    static JButton macOSButton = new JButton("macOS",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Systems-Mac-Os-icon.png"));
+    static JButton windowsButton = new JButton("Windows", new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/windows-8-icon.png"));
+    static JButton linuxButton = new JButton("Linux",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/OS-Linux-icon.png"));
     static JButton otherButton = new JButton("Other..");
     static JButton ubuntu = new JButton("Ubuntu 22.04(Codenamed Jammy Jellyfish)");
     static JButton debian = new JButton("Debian 11-32 bit(Codenamed Bullseye)");
@@ -101,9 +102,10 @@ class Main {
     static JButton back7 = new JButton("Back");
     static JButton back8 = new JButton("Back");
     static JLabel windowsChose = new JLabel("Chose your Windows Version");
+    Desktop desk=Desktop.getDesktop();
+    Notification notification = new Notification();
     //Image File
     static File image ;
-    Icon icon = new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB");
     public static void main(String[] args){
         selectFile.addActionListener(new ActionListener() {
             @Override
@@ -162,23 +164,33 @@ class Main {
 
             }
         });
-        welcomeLabel.setFont(new Font("SansSerif", Font.PLAIN,30));
-        macOSChoose.setFont(new Font("SansSerif", Font.PLAIN, 30));
+        welcomeLabel.setFont(new Font("SansSerif", Font.PLAIN,20));
+        macOSChoose.setFont(new Font("SansSerif", Font.PLAIN, 20));
         welcome.setLayout(null);
         welcome.setBorder(new EmptyBorder(5, 5, 5, 5));
+        welcomeLabel.setBounds(250,0,500,30);
         welcome.add(welcomeLabel);
+        chooseOS.setBounds(100,40,500,30);
         welcome.add(chooseOS);
+        macOSButton.setBounds(250,100,100,50);
         welcome.add(macOSButton);
+        windowsButton.setBounds(250,150,100,50);
         welcome.add(windowsButton);
+        linuxButton.setBounds(250,200,100,50);
         welcome.add(linuxButton);
-        welcome.add(otherButton);
+        otherButton.setBounds(250,250,100,50);
         welcome.add(otherButton);
         macOS.setLayout(null);
         macOS.setBorder(new EmptyBorder(5, 5, 5, 5));
+        macOSChoose.setBounds(250,0,500,30);
         macOS.add(macOSChoose);
+        macOS_11.setBounds(250,40,300,30);
         macOS.add(macOS_11);
+        macOS_12.setBounds(250,80,300,30);
         macOS.add(macOS_12);
+        macOS_12_MBP.setBounds(250,120,400,30);
         macOS.add(macOS_12_MBP);
+        back.setBounds(30,200,100,30);
         macOS.add(back);
         Linux.setLayout(null);
         Linux.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -215,12 +227,19 @@ class Main {
         Linux.add(back2);
         Windows.setLayout(null);
         Windows.setBorder(new EmptyBorder(5, 5, 5, 5));
+        windowsChose.setBounds(225,0,300,30);
         Windows.add(windowsChose);
+        Windows8.setBounds(225,30,200,50);
         Windows.add(Windows8);
+        Windows8_64.setBounds(225,80,200,50);
         Windows.add(Windows8_64);
+        Windows10.setBounds(225,130,200,50);
         Windows.add(Windows10);
+        Windows10_64.setBounds(225,180,200,50);
         Windows.add(Windows10_64);
+        Windows11.setBounds(225,230,200,50);
         Windows.add(Windows11);
+        back3.setBounds(30,320,75,30);
         Windows.add(back3);
         others.setLayout(null);
         others.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -244,18 +263,17 @@ class Main {
         ApplicationPanel.add(verifyUSB,"7");
         ApplicationPanel.add(finishedScreen,"8");
         ApplicationPanel.add(downloadImage,"9");
-        ApplicationPanel.add(macOS11EULA,"10");
-        ApplicationPanel.add(macOS12EULA,"11");
-        layout.show(ApplicationPanel ,"10");
+        ApplicationPanel.add(macOSEULA,"10");
+        layout.show(ApplicationPanel ,"4");
         menuBar.add(fileMenu);
         menuBar.add(downloadMenu);
         menuBar.add(help);
         menuBar.add(settingsMenu);
         frame.add(menuBar);
         frame.add(ApplicationPanel);
-        frame.setSize(new Dimension(700,700));
+        frame.setSize(new Dimension(650,400));
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        frame.setMinimumSize(new Dimension(600,600));
+        frame.setMinimumSize(new Dimension(650,400));
         //frame.pack();
         frame.setVisible(true);
 
@@ -281,10 +299,12 @@ class Main {
 
 
     public static void writeImage(String filename, String usbDir) throws IOException {
-        if(new File(filename).exists() && new File(usbDir).exists()) {
-            Runtime.getRuntime().exec("dd ");
+        if(new File(filename).exists() && new File(usbDir).exists()
+        ) {
+            Runtime.getRuntime().exec("dd if="+filename+" of="+usbDir+" bs=1M status=progress");
         }
     }
+    //Only for macOS users
     public static void installApp(String packageFile) throws IOException {
         Runtime.getRuntime().exec("sudo installer -pkg " + Constants.appDatamacOS +"/" +packageFile+" -target CurrentUserHomeDirectory");
     }
