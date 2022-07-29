@@ -107,6 +107,7 @@ class Main {
     //Image File
     static File image ;
     public static void main(String[] args){
+        frame.setLocationRelativeTo(null);
         selectFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -156,6 +157,7 @@ class Main {
         });
         linuxButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                frame.setSize(1920, 1080);
                 layout.show(ApplicationPanel, "3");
             }
         });
@@ -202,36 +204,59 @@ class Main {
         Linux.add(ubuntuServer);
         debian.setBounds(225,130,200,50);
         Linux.add(debian);
-        debian64.setBounds(225,150,200,50);
+        debian64.setBounds(225,180,200,50);
         Linux.add(debian64);
-        debianNet.setBounds(225,180,200,50);
+        debianNet.setBounds(225,230,200,50);
         Linux.add(debianNet);
-        debianNet64.setBounds(225,210,200,50);
+        debianNet64.setBounds(225,280,200,50);
         Linux.add(debianNet64);
-        Arch.setBounds(225,240,200,50);
+        Arch.setBounds(225,330,200,50);
         Linux.add(Arch);
+        fedoraWorkspace.setBounds(225,380,200,50);
         Linux.add(fedoraWorkspace);
+        fedoraWorkspace64.setBounds(225,430,200,50);
         Linux.add(fedoraWorkspace64);
+        fedoraServer.setBounds(225,480,200,50);
         Linux.add(fedoraServer);
+        fedoraServer_ARM.setBounds(225,530,200,50);
         Linux.add(fedoraServer_ARM);
+        fedoraServerNet64.setBounds(225,580,200,50);
         Linux.add(fedoraServerNet64);
+        fedoraServerNet_ARM.setBounds(225,630,200,50);
         Linux.add(fedoraServerNet_ARM);
+        deepin.setBounds(425,30,200,50);
         Linux.add(deepin);
+        ManjaroGnome.setBounds(425,80,200,50);
         Linux.add(ManjaroGnome);
+        ManjaroKDE.setBounds(425,130,200,50);
         Linux.add(ManjaroKDE);
+        ManjaroXFCE.setBounds(425,180,200,50);
         Linux.add(ManjaroXFCE);
+        LinuxMintCinnamon.setBounds(425,230,200,50);
         Linux.add(LinuxMintCinnamon);
+        LinuxMintEdge.setBounds(425,280,200,50);
         Linux.add(LinuxMintEdge);
+        LinuxMintMate.setBounds(425,330,200,50);
         Linux.add(LinuxMintMate);
+        LinuxMintXfce.setBounds(425,380,200,50);
         Linux.add(LinuxMintXfce);
+        elementaryOS.setBounds(425,430,200,50);
         Linux.add(elementaryOS);
+        solusGnome.setBounds(425,480,200,50);
         Linux.add(solusGnome);
+        solusBudgie.setBounds(425,530,200,50);
         Linux.add(solusBudgie);
+        solusKDE.setBounds(425,580,200,50);
         Linux.add(solusKDE);
+        solusMATE.setBounds(425,630,200,50);
         Linux.add(solusMATE);
+        blackArch.setBounds(225,680,200,50);
         Linux.add(blackArch);
+        blackArchMinimum.setBounds(425,680,200,50);
         Linux.add(blackArchMinimum);
+        blackArchNet.setBounds(225,730,400,50);
         Linux.add(blackArchNet);
+        back2.setBounds(20,800,100,30);
         Linux.add(back2);
         Windows.setLayout(null);
         Windows.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -251,6 +276,7 @@ class Main {
         Windows.add(back3);
         others.setLayout(null);
         others.setBorder(new EmptyBorder(5, 5, 5, 5));
+        othersChoose.setBounds(30,0,75,30);
         others.add(othersChoose);
         others.add(imageFileDirectory);
         others.add(selectFile);
@@ -272,7 +298,7 @@ class Main {
         ApplicationPanel.add(finishedScreen,"8");
         ApplicationPanel.add(downloadImage,"9");
         ApplicationPanel.add(macOSEULA,"10");
-        layout.show(ApplicationPanel ,"4");
+        layout.show(ApplicationPanel ,"1");
         menuBar.add(fileMenu);
         menuBar.add(downloadMenu);
         menuBar.add(help);
