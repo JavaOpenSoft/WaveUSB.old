@@ -53,45 +53,46 @@ class Main {
     static JMenu settingsMenu = new JMenu("Settings");
     static JTextField imageFileDirectory = new JTextField("Enter the file path or select a file..");
     //Buttons
+    static JButton quitButton = new JButton("Quit");
     static JButton selectFile = new JButton("Select a Image File");
     static JButton macOSButton = new JButton("macOS",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Systems-Mac-Os-icon.png"));
     static JButton windowsButton = new JButton("Windows", new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/windows-8-icon.png"));
     static JButton linuxButton = new JButton("Linux",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/OS-Linux-icon.png"));
     static JButton otherButton = new JButton("Other..");
-    static JButton ubuntu = new JButton("Ubuntu 22.04(Codenamed Jammy Jellyfish)");
-    static JButton debian = new JButton("Debian 11-32 bit(Codenamed Bullseye)");
-    static JButton debian64 = new JButton("Debian 11 64-bit (Codenamed Bullseye)");
-    static JButton debianNet64 = new JButton("Debian 11 64-bit Network Installer(Codenamed Bullseye)");
-    static JButton debianNet = new JButton("Debian 11 32-bit Network Installer(Codenamed Bullseye)");
-    static JButton ubuntuServer = new JButton("Ubuntu Server 22.04(Codenamed Jammy Jellyfish)");
-    static JButton Arch = new JButton("Arch 2022.07.01 64-bit");
-    static JButton fedoraWorkspace = new JButton("Fedora Workstation 36 32-bit");
-    static JButton fedoraWorkspace64 = new JButton("Fedora Workstation 36 64-bit");
-    static JButton fedoraServer = new JButton("Fedora Server 36 32-bit");
-    static JButton fedoraServer_ARM = new JButton("Fedora Server ARM 64-bit");
-    static JButton fedoraServerNet64 = new JButton("Fedora Server Net 64-bit");
-    static JButton fedoraServerNet_ARM = new JButton("Fedora Server Net ARM 64-bit");
-    static JButton deepin = new JButton("Deepin OS 20.6");
-    static JButton ManjaroGnome = new JButton("Manjaro Gnome Edtion");
-    static JButton ManjaroXFCE = new JButton("Manjaro XFCE Edition");
-    static JButton ManjaroKDE = new JButton("Manjaro KDE Edition");
-    static JButton LinuxMintEdge = new JButton("Linux Mint Edge Edition Version 20.3");
-    static JButton LinuxMintCinnamon = new JButton("Linux Mint Cinnamon Version 20.3");
-    static JButton LinuxMintMate = new JButton("Linux Mint MATE Edition Version 20.3");
-    static JButton LinuxMintXfce = new JButton("Linux Mint Xfce Edition Version 20.3");
-    static JButton elementaryOS = new JButton("Elementary OS Version 6.1");
-    static JButton solusGnome = new JButton("Solus Gnome Edition Version 4.3");
-    static JButton solusBudgie = new JButton("Solus Budgie Edition Version 4.3");
-    static JButton solusMATE = new JButton("Solus MATE Edition Version 4.3");
-    static JButton solusKDE = new JButton("Solus KDE Edition Version 4.3");
-    static JButton blackArch = new JButton("Black Arch Version 2021.09.1 64-bit");
-    static JButton blackArchMinimum = new JButton("Black Arch Minimum Edition Version 2021.09.1 64-bit");
-    static JButton blackArchNet = new JButton("Black Arch Network Installer Version 2021.09.1 64-bit");
-    static JButton Windows8 = new JButton("Windows 8 32-bit");
-    static JButton Windows8_64 = new JButton("Windows 8 64-bit");
-    static JButton Windows10 = new JButton("Windows 10 32-bit");
-    static JButton Windows10_64 = new JButton("Windows 10 64-bit");
-    static JButton Windows11 = new JButton("Windows 11");
+    static JButton ubuntu = new JButton("Ubuntu 22.04(Codenamed Jammy Jellyfish)",  new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/ubuntu.png"));
+    static JButton debian = new JButton("Debian 11-32 bit(Codenamed Bullseye)",  new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/debian.png"));
+    static JButton debian64 = new JButton("Debian 11 64-bit (Codenamed Bullseye)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/debian.png"));
+    static JButton debianNet64 = new JButton("Debian 11 64-bit Network Installer(Codenamed Bullseye)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/debian.png"));
+    static JButton debianNet = new JButton("Debian 11 32-bit Network Installer(Codenamed Bullseye)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/debian.png"));
+    static JButton ubuntuServer = new JButton("Ubuntu Server 22.04(Codenamed Jammy Jellyfish)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/ubuntu.png"));
+    static JButton Arch = new JButton("Arch 2022.07.01 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/arch.png"));
+    static JButton fedoraWorkspace = new JButton("Fedora Workstation 36 32-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/fedora.png"));
+    static JButton fedoraWorkspace64 = new JButton("Fedora Workstation 36 64-bit", new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/fedora.png"));
+    static JButton fedoraServer = new JButton("Fedora Server 36 32-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/fedora.png"));
+    static JButton fedoraServer_ARM = new JButton("Fedora Server ARM 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/fedora.png"));
+    static JButton fedoraServerNet64 = new JButton("Fedora Server Net 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/fedora.png"));
+    static JButton fedoraServerNet_ARM = new JButton("Fedora Server Net ARM 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/fedora.png"));
+    static JButton deepin = new JButton("Deepin OS 20.6",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/deepin.png"));
+    static JButton ManjaroGnome = new JButton("Manjaro Gnome Edition",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/manjaro.png"));
+    static JButton ManjaroXFCE = new JButton("Manjaro XFCE Edition",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/manjaro.png"));
+    static JButton ManjaroKDE = new JButton("Manjaro KDE Edition",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/manjaro.png"));
+    static JButton LinuxMintEdge = new JButton("Linux Mint Edge Edition Version 20.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/linux-mint.png"));
+    static JButton LinuxMintCinnamon = new JButton("Linux Mint Cinnamon Version 20.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/linux-mint.png"));
+    static JButton LinuxMintMate = new JButton("Linux Mint MATE Edition Version 20.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/linux-mint.png"));
+    static JButton LinuxMintXfce = new JButton("Linux Mint Xfce Edition Version 20.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/linux-mint.png"));
+    static JButton elementaryOS = new JButton("Elementary OS Version 6.1",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/ElementaryOS.png"));
+    static JButton solusGnome = new JButton("Solus Gnome Edition Version 4.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/Solus.png"));
+    static JButton solusBudgie = new JButton("Solus Budgie Edition Version 4.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/Solus.png"));
+    static JButton solusMATE = new JButton("Solus MATE Edition Version 4.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/Solus.png"));
+    static JButton solusKDE = new JButton("Solus KDE Edition Version 4.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/Solus.png"));
+    static JButton blackArch = new JButton("Black Arch Version 2021.09.1 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/blackarch.png"));
+    static JButton blackArchMinimum = new JButton("Black Arch Minimum Edition Version 2021.09.1 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/blackarch.png"));
+    static JButton blackArchNet = new JButton("Black Arch Network Installer Version 2021.09.1 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/blackarch.png"));
+    static JButton Windows8 = new JButton("Windows 8 32-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Windows_Icons/win8_and_10.png"));
+    static JButton Windows8_64 = new JButton("Windows 8 64-bit", new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Windows_Icons/win8_and_10.png"));
+    static JButton Windows10 = new JButton("Windows 10 32-bit", new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Windows_Icons/win8_and_10.png"));
+    static JButton Windows10_64 = new JButton("Windows 10 64-bit", new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Windows_Icons/win8_and_10.png"));
+    static JButton Windows11 = new JButton("Windows 11",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Windows_Icons/win11.png"));
     static JButton next = new JButton("Next");
     static JButton back = new JButton("Back");
     static JButton back2 = new JButton("Back");
@@ -102,8 +103,10 @@ class Main {
     static JButton back7 = new JButton("Back");
     static JButton back8 = new JButton("Back");
     static JLabel windowsChose = new JLabel("Chose your Windows Version");
+    static JButton proceed = new JButton("Next");
     Desktop desk=Desktop.getDesktop();
-    Notification notification = new Notification();
+    static Notification notification = new Notification();
+    static JPopupMenu popupMenu = new JPopupMenu();
     //Image File
     static File image ;
     public static void main(String[] args){
@@ -161,6 +164,20 @@ class Main {
                 layout.show(ApplicationPanel, "3");
             }
         });
+        quitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                notification.getButton().addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        System.exit(0);
+                    }
+                });
+            }
+        });
+        proceed.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
         macOS_11.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -182,6 +199,7 @@ class Main {
         welcome.add(linuxButton);
         otherButton.setBounds(250,250,100,50);
         welcome.add(otherButton);
+        welcome.add(popupMenu);
         macOS.setLayout(null);
         macOS.setBorder(new EmptyBorder(5, 5, 5, 5));
         macOSChoose.setBounds(250,0,500,30);
@@ -278,10 +296,12 @@ class Main {
         others.setBorder(new EmptyBorder(5, 5, 5, 5));
         othersChoose.setBounds(225,0,500,30);
         others.add(othersChoose);
-        imageFileDirectory.setBounds(225,100,250,40);
+        imageFileDirectory.setBounds(125,100,250,40);
         others.add(imageFileDirectory);
-        selectFile.setBounds(450,300,150,30);
+        selectFile.setBounds(450,100,150,30);
         others.add(selectFile);
+        proceed.setBounds(450,300,150,30);
+        others.add(proceed);
         back4.setBounds(30,300,100,30);
         others.add(back4);
         others.add(next);

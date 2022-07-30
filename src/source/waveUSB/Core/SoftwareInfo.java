@@ -16,5 +16,6 @@ public class SoftwareInfo {
     public static String getOSVersion(){
         return System.getProperty("os.version");
     }
+    public static String getHomeDirectory(){return System.getProperty("user.home");}
 
 }
