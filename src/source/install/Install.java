@@ -1,4 +1,5 @@
 package source.install;
+import source.waveUSB.Core.Notification;
 import source.waveUSB.Core.Unzipper;
 
 import javax.swing.*;

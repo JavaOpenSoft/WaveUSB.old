@@ -1,13 +1,13 @@
-package source.install;
+package source.waveUSB.Core;
 
 import javax.swing.*;
 import java.awt.*;
 public class Notification {
-    public final byte ERROR = 0;
-    public final byte QUESTION = 1;
-    public final byte INFO =2;
-    public final byte SUCCESS = 3;
-    public final byte WARNING = 4;
+    public static final byte ERROR = 0;
+    public static final byte QUESTION = 1;
+    public static final byte INFO =2;
+    public static final byte SUCCESS = 3;
+    public static final byte WARNING = 4;
     private JFrame frame = new JFrame("Notification");
     private JLabel text = new JLabel();
     private JLabel icon = new JLabel();

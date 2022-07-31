@@ -1,8 +1,8 @@
 package source.waveUSB;
 
-import source.install.Notification;
+import source.waveUSB.Core.Notification;
+import source.waveUSB.Core.SoftwareInfo;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -28,31 +28,34 @@ class Main {
     static JPanel verifyUSB = new JPanel();
     static JPanel finishedScreen = new JPanel();//ending screen
     static JPanel macOSEULA = new JPanel();
-    static JButton macOS_11 = new JButton("macOS 11 (Codenamed Big Sur)");
-    static JButton macOS_12 = new JButton("macOS 12(Codenamed Monterey)");
-    static JButton macOS_12_MBP = new JButton("macOS 12 (Macbook Pro specific)(Codenamed Monterey)");
     static JLabel macOSChoose = new JLabel("Choose your macOS Version:");
-    static JInternalFrame jInternalFrame = new JInternalFrame();
-    static JProgressBar jProgressBar = new JProgressBar();
-    static JScrollPane jScrollPane = new JScrollPane();
-    static JScrollBar jScrollBar = new JScrollBar();
-    static JTextArea jTextArea = new JTextArea();
-    static JLabel percentLabel = new JLabel();
-    static JLabel timeLeftLabel = new JLabel();
-    static CardLayout layout = new CardLayout();
-    static JFileChooser jFileChooser = new JFileChooser();
-    static JMenuBar menuBar = new JMenuBar();
-
     static JLabel chooseOS = new JLabel("To start, choose your operating system installer you want to write to your USB:");
     static JLabel welcomeLabel = new JLabel("Welcome!");
     static JLabel linuxChoose = new JLabel("Please choose your linux Installer:");
     static JLabel othersChoose = new JLabel("Please choose an image file:");
+    static JLabel timeLeftLabel = new JLabel();
+    static JLabel windowsChose = new JLabel("Chose your Windows Version");
+    static JTextField imageFileDirectory = new JTextField("Enter the file path or select a file..");
+    static JTextField usbDirectory = new JTextField("Enter or Choose the USB path..");
+    static JTextArea jTextArea = new JTextArea();
+    static JLabel percentLabel = new JLabel();
+    static JInternalFrame jInternalFrame = new JInternalFrame();
+    static JProgressBar jProgressBar = new JProgressBar();
+    static JScrollPane jScrollPane = new JScrollPane();
+    static JScrollBar jScrollBar = new JScrollBar();
+    static CardLayout layout = new CardLayout();
+
+    static JMenuBar menuBar = new JMenuBar();
     static JMenu fileMenu = new JMenu("File");
     static JMenu help = new JMenu("help");
     static JMenu downloadMenu = new JMenu("Download");
     static JMenu settingsMenu = new JMenu("Settings");
-    static JTextField imageFileDirectory = new JTextField("Enter the file path or select a file..");
     //Buttons
+    static JButton macOS_1015 = new JButton("macOS 10.15 (Codenamed Catalina)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Catalina_Icons/Catalina_32x32x32.png"));
+    static JButton macOS_1014 = new JButton("macOS 10.14 (Codenamed Mojave)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Mojave_Icons/Mojave_32x32x32.png"));
+    static JButton macOS_1013 = new JButton("macOS 10.13(Codenamed High Sierra)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/HighSierra_Icons/HighSierra_32x32x32.png"));
+    static JButton macOS_12 = new JButton("macOS 12.5(Codenamed Monterey)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Monterey_Icon/Monterey_32x32x32.png"));
+    static JButton macOS_11 = new JButton("macOS 11.6.8(Codenamed Big Sur)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/BigSur_Icons/BigSur_32x32x32.png"));
     static JButton quitButton = new JButton("Quit");
     static JButton selectFile = new JButton("Select a Image File");
     static JButton macOSButton = new JButton("macOS",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Systems-Mac-Os-icon.png"));
@@ -102,13 +105,13 @@ class Main {
     static JButton back6 = new JButton("Back");
     static JButton back7 = new JButton("Back");
     static JButton back8 = new JButton("Back");
-    static JLabel windowsChose = new JLabel("Chose your Windows Version");
     static JButton proceed = new JButton("Next");
-    Desktop desk=Desktop.getDesktop();
-    static Notification notification = new Notification();
-    static JPopupMenu popupMenu = new JPopupMenu();
+    static JFileChooser jFileChooser = new JFileChooser();
+    static JFileChooser chooseUSB = new JFileChooser();
+    static JButton USB = new JButton("Select USB");
     //Image File
     static File image ;
+    String os = SoftwareInfo.getOS();
     public static void main(String[] args){
         frame.setLocationRelativeTo(null);
         selectFile.addActionListener(new ActionListener() {
@@ -145,6 +148,7 @@ class Main {
         back2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 layout.show(ApplicationPanel, "1");
+                frame.setSize(new Dimension(650,400));
             }
         });
         back4.addActionListener(new ActionListener() {
@@ -160,17 +164,14 @@ class Main {
         });
         linuxButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                frame.setSize(1920, 1080);
+                frame.setSize(790, 900);
                 layout.show(ApplicationPanel, "3");
+                frame.setLocationRelativeTo(null);
             }
         });
         quitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                notification.getButton().addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                        System.exit(0);
-                    }
-                });
+                System.exit(0);
             }
         });
         proceed.addActionListener(new ActionListener() {
@@ -199,18 +200,23 @@ class Main {
         welcome.add(linuxButton);
         otherButton.setBounds(250,250,100,50);
         welcome.add(otherButton);
-        welcome.add(popupMenu);
+        quitButton.setBounds(30,300,100,30);
+        welcome.add(quitButton);
         macOS.setLayout(null);
         macOS.setBorder(new EmptyBorder(5, 5, 5, 5));
         macOSChoose.setBounds(250,0,500,30);
         macOS.add(macOSChoose);
-        macOS_11.setBounds(250,40,300,50);
+        macOS_11.setBounds(150,40,400,50);
         macOS.add(macOS_11);
-        macOS_12.setBounds(250,80,300,50);
+        macOS_12.setBounds(150,90,400,50);
         macOS.add(macOS_12);
-        macOS_12_MBP.setBounds(250,120,400,50);
-        macOS.add(macOS_12_MBP);
-        back.setBounds(30,200,100,30);
+        macOS_1015.setBounds(150,140,400,50);
+        macOS.add(macOS_1015);
+        macOS_1014.setBounds(150,190,400,50);
+        macOS.add(macOS_1014);
+        macOS_1013.setBounds(150,240,400,50);
+        macOS.add(macOS_1013);
+        back.setBounds(30,310,100,30);
         macOS.add(back);
         Linux.setLayout(null);
         Linux.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -331,7 +337,6 @@ class Main {
         frame.setSize(new Dimension(650,400));
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.setMinimumSize(new Dimension(650,400));
-        //frame.pack();
         frame.setVisible(true);
 
     }
