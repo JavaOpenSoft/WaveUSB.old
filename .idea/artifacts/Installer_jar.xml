@@ -2,7 +2,7 @@
   <artifact type="jar" name="Installer:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Installer_jar</output-path>
     <root id="archive" name="WaveUSB1.jar">
-      <element id="module-output" name="WaveUSB1" />
+      <element id="module-output" name="WaveUSB" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/stephenc/java-iso-tools/iso9660-vfs-impl/2.1.0/iso9660-vfs-impl-2.1.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-vfs/commons-vfs/1.0/commons-vfs-1.0.jar" path-in-jar="/" />

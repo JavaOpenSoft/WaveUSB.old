@@ -1,7 +1,7 @@
 package waveUSB.Core;
 
 public class SoftwareInfo {
-    static String version = "0.1 GUI Staging";
+    static String version = "0.2 GUI Staging";
     static String About = "GUI Edition of WaveUSB, A complete USB writer designed mostly in Java.";
     public static String getVersion() {
         return version;

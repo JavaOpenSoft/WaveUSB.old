@@ -112,7 +112,6 @@ class Main {
     static File image ;
     String os = SoftwareInfo.getOS();
     public static void main(String[] args){
-        frame.setLocationRelativeTo(null);
         selectFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -168,6 +167,15 @@ class Main {
                 frame.setLocationRelativeTo(null);
             }
         });
+        USB .addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                int response= chooseUSB.showOpenDialog(null);
+                if (response==JFileChooser.APPROVE_OPTION){
+                    usbDirectory.setText(chooseUSB.getSelectedFile().getAbsolutePath());
+                }
+            }
+        });
         quitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
@@ -199,8 +207,12 @@ class Main {
         welcome.add(linuxButton);
         otherButton.setBounds(250,250,100,50);
         welcome.add(otherButton);
-        quitButton.setBounds(30,300,100,30);
+        quitButton.setBounds(30,530,100,30);
         welcome.add(quitButton);
+        usbDirectory.setBounds(250,300,220,30);
+        welcome.add(usbDirectory);
+        USB.setBounds(300,300,150,30);
+        welcome.add(USB);
         macOS.setLayout(null);
         macOS.setBorder(new EmptyBorder(5, 5, 5, 5));
         macOSChoose.setBounds(250,0,500,30);
@@ -333,9 +345,10 @@ class Main {
         menuBar.add(settingsMenu);
         frame.add(menuBar);
         frame.add(ApplicationPanel);
-        frame.setSize(new Dimension(650,400));
+        frame.setSize(new Dimension(650,600));
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.setMinimumSize(new Dimension(650,400));
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
     }
