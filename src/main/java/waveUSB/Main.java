@@ -50,6 +50,9 @@ class Main {
     static JMenu downloadMenu = new JMenu("Download");
     static JMenu settingsMenu = new JMenu("Settings");
     //Buttons
+    static JButton blackArch = new JButton("Black Arch Version 2021.09.1 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/blackarch.png"));
+    static JButton blackArchMinimum = new JButton("Black Arch Minimum Edition Version 2021.09.1 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/blackarch.png"));
+    static JButton blackArchNet = new JButton("Black Arch Network Installer Version 2021.09.1 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/blackarch.png"));
     static JButton macOS_1015 = new JButton("macOS 10.15 (Codenamed Catalina)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Catalina_Icons/Catalina_32x32x32.png"));
     static JButton macOS_1014 = new JButton("macOS 10.14 (Codenamed Mojave)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Mojave_Icons/Mojave_32x32x32.png"));
     static JButton macOS_1013 = new JButton("macOS 10.13(Codenamed High Sierra)",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/HighSierra_Icons/HighSierra_32x32x32.png"));
@@ -78,7 +81,6 @@ class Main {
     static JButton ManjaroGnome = new JButton("Manjaro Gnome Edition",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/manjaro.png"));
     static JButton ManjaroXFCE = new JButton("Manjaro XFCE Edition",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/manjaro.png"));
     static JButton ManjaroKDE = new JButton("Manjaro KDE Edition",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/manjaro.png"));
-    static JButton LinuxMintEdge = new JButton("Linux Mint Edge Edition Version 20.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/linux-mint.png"));
     static JButton LinuxMintCinnamon = new JButton("Linux Mint Cinnamon Version 20.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/linux-mint.png"));
     static JButton LinuxMintMate = new JButton("Linux Mint MATE Edition Version 20.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/linux-mint.png"));
     static JButton LinuxMintXfce = new JButton("Linux Mint Xfce Edition Version 20.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/linux-mint.png"));
@@ -87,9 +89,6 @@ class Main {
     static JButton solusBudgie = new JButton("Solus Budgie Edition Version 4.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/Solus.png"));
     static JButton solusMATE = new JButton("Solus MATE Edition Version 4.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/Solus.png"));
     static JButton solusKDE = new JButton("Solus KDE Edition Version 4.3",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/Solus.png"));
-    static JButton blackArch = new JButton("Black Arch Version 2021.09.1 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/blackarch.png"));
-    static JButton blackArchMinimum = new JButton("Black Arch Minimum Edition Version 2021.09.1 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/blackarch.png"));
-    static JButton blackArchNet = new JButton("Black Arch Network Installer Version 2021.09.1 64-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Linux_Icons/blackarch.png"));
     static JButton Windows8 = new JButton("Windows 8 32-bit",new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Windows_Icons/win8_and_10.png"));
     static JButton Windows8_64 = new JButton("Windows 8 64-bit", new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Windows_Icons/win8_and_10.png"));
     static JButton Windows10 = new JButton("Windows 10 32-bit", new ImageIcon("/Users/rishonrishon/IdeaProjects/WaveUSB/src/resources/images/Windows_Icons/win8_and_10.png"));
@@ -107,10 +106,10 @@ class Main {
     static JButton proceed = new JButton("Next");
     static JFileChooser jFileChooser = new JFileChooser();
     static JFileChooser chooseUSB = new JFileChooser();
-    static JButton USB = new JButton("Select USB");
+    static JButton USB = new JButton("Select USB...");
     //Image File
     static File image ;
-    String os = SoftwareInfo.getOS();
+    static String os = SoftwareInfo.getOS();
     public static void main(String[] args){
         selectFile.addActionListener(new ActionListener() {
             @Override
@@ -191,6 +190,61 @@ class Main {
 
             }
         });
+        Windows10.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        Windows11.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        Windows8_64.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        Windows8.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+
+           }
+        });
+        Windows10_64.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        macOS_1015.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        macOS_1014.addActionListener(new ActionListener() {
+            @Override
+           public void actionPerformed(ActionEvent e) {
+
+           }
+        });
+        macOS_1013.addActionListener(new ActionListener() {
+           @Override
+           public void actionPerformed(ActionEvent e) {
+
+           }
+        });
+        deepin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
         welcomeLabel.setFont(new Font("SansSerif", Font.PLAIN,20));
         macOSChoose.setFont(new Font("SansSerif", Font.PLAIN, 20));
         welcome.setLayout(null);
@@ -211,7 +265,7 @@ class Main {
         welcome.add(quitButton);
         usbDirectory.setBounds(250,300,220,30);
         welcome.add(usbDirectory);
-        USB.setBounds(300,300,150,30);
+        USB.setBounds(470,300,125,30);
         welcome.add(USB);
         macOS.setLayout(null);
         macOS.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -269,27 +323,25 @@ class Main {
         Linux.add(ManjaroXFCE);
         LinuxMintCinnamon.setBounds(425,230,200,50);
         Linux.add(LinuxMintCinnamon);
-        LinuxMintEdge.setBounds(425,280,200,50);
-        Linux.add(LinuxMintEdge);
-        LinuxMintMate.setBounds(425,330,200,50);
+        LinuxMintMate.setBounds(425,280,200,50);
         Linux.add(LinuxMintMate);
-        LinuxMintXfce.setBounds(425,380,200,50);
+        LinuxMintXfce.setBounds(425,330,200,50);
         Linux.add(LinuxMintXfce);
-        elementaryOS.setBounds(425,430,200,50);
+        elementaryOS.setBounds(425,380,200,50);
         Linux.add(elementaryOS);
-        solusGnome.setBounds(425,480,200,50);
+        solusGnome.setBounds(425,430,200,50);
         Linux.add(solusGnome);
-        solusBudgie.setBounds(425,530,200,50);
+        solusBudgie.setBounds(425,480,200,50);
         Linux.add(solusBudgie);
-        solusKDE.setBounds(425,580,200,50);
+        solusKDE.setBounds(425,530,200,50);
         Linux.add(solusKDE);
-        solusMATE.setBounds(425,630,200,50);
+        solusMATE.setBounds(425,580,200,50);
         Linux.add(solusMATE);
-        blackArch.setBounds(225,680,200,50);
+        blackArch.setBounds(225,630,200,50);
         Linux.add(blackArch);
-        blackArchMinimum.setBounds(425,680,200,50);
+        blackArchMinimum.setBounds(425,630,200,50);
         Linux.add(blackArchMinimum);
-        blackArchNet.setBounds(225,730,400,50);
+        blackArchNet.setBounds(225,680,400,50);
         Linux.add(blackArchNet);
         back2.setBounds(20,800,100,30);
         Linux.add(back2);
